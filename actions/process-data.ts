@@ -11,7 +11,7 @@ export async function processData() {
         const chunks: EmbeddingDocumentType['create'][] = [];
         // scrapping from the URL
         await scrapeWebpages().then(data => chunks.push(...data));
-        const totalChunks = chunks.length;
+
         const embeddings = await generateEmbeddings(chunks.map((chunk) => chunk.text))
         const records: EmbeddingDocumentType['create'][] = chunks.map((chunk, index) => EmbeddingDocumentSchema.create.parse({
                   text: chunk.text,
