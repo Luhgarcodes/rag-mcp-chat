@@ -20,8 +20,6 @@ const ChatSuggestions = ({
   const suggestionRef = useRef<HTMLDivElement>(null)
   const [showHint, setShowHint] = useState(false)
 
-  console.log("loading---👌👌---------", { messages, isBusy })
-
   const { suggestions, isLoading, isVisible } = useChatSuggestions({
     messages,
     isBusy,

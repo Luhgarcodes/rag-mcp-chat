@@ -48,6 +48,6 @@ export async function generateSuggestions(question: string, answer: string) {
     return output
   } catch (error) {
     console.error("Error generating suggestions:", error)
-    return { suggestions: [] }
+    return { suggestion: [] }
   }
 }

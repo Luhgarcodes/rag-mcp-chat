@@ -1,6 +1,7 @@
 import { streamText, isStepCount, UIMessage } from "ai"
 import { openai } from "@ai-sdk/openai"
 import { buildRAGMessages } from "../prompt/prompt-builder"
+import { createAllTools } from "../tools"
 
 export type RAGAgentOptions = {
   lastMessage: string
@@ -23,6 +24,7 @@ export async function streamRAGAgent({
     system: messages.system,
     messages: messages.messages,
     abortSignal: signal,
+    tools: createAllTools(),
     onAbort: ({ steps }) => {
       console.log("Stream aborted after", steps.length, "steps")
     },

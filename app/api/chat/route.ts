@@ -17,7 +17,6 @@ type ChatRequest = {
 export async function POST(req: Request) {
   const body = (await req.json()) as ChatRequest
 
-  console.log("Last message:", body)
   const { lastMessage, messages } = body
   if (!lastMessage || typeof lastMessage !== "string") {
     return NextResponse.json(

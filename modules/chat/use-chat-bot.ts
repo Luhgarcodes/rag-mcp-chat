@@ -16,15 +16,7 @@ export function useChatBot() {
 
   const isBusy = chat.status === "submitted" || chat.status === "streaming"
 
-  console.log("🔥 useChatBot RENDER", {
-    messages: chat.messages,
-    status: chat.status,
-    isBusy,
-  })
-
   const handleSendMessage = (text: string) => {
-    console.log("🔥 SEND", text)
-
     chat.sendMessage(
       { text },
       {
@@ -34,14 +26,6 @@ export function useChatBot() {
       }
     )
   }
-
-  console.log("All ------- --#######--state", {
-    messages: chat.messages,
-    status: chat.status,
-    isBusy,
-    sendMessage: handleSendMessage,
-    stop: chat.stop,
-  })
 
   return {
     messages: chat.messages,
